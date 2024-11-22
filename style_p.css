@@ -1,0 +1,139 @@
+/* Importación de fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
+
+/* Estilo global */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    min-height: 100vh;
+    padding: 20px;
+
+    background: url('imagen/DSC_9960.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.379); /* Color oscuro con opacidad */
+    z-index: -1; /* Detrás de todo */
+}
+
+.grid-container {
+    display: grid;
+    gap: 20px;
+    grid-template-areas: 
+        "header"
+        "aside"
+        "section"
+        "footer";
+    grid-template-rows: 100px 200px auto 100px;
+}
+
+/* Estilos de las áreas */
+.header {
+    grid-area: header;
+    background-color: #1b7e75;
+    border-radius: 6px; /* Esquinas redondeadas */
+}
+
+.aside {
+    grid-area: aside;
+    background-color: rgb(124, 96, 131);
+    border-radius: 6px; /* Esquinas redondeadas */
+}
+
+.section {
+    grid-area: section;
+    background-color: rgb(115, 80, 124);
+    overflow-y: auto; /* Barra de desplazamiento vertical */
+    max-height: 400px; /* Altura máxima del contenedor */
+    padding: 10px;
+    border-radius: 6px; /* Esquinas redondeadas */
+    box-shadow: 10px 6px 37px -13px rgba(51, 51, 51, 0.74);
+}
+
+.footer {
+    grid-area: footer;
+    background-color: rgb(19, 19, 19);
+    border-radius: 6px; /* Esquinas redondeadas */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.texto_aside, .titulo_aside{
+padding: 1vw ;
+color: rgb(207, 220, 232); 
+text-align: justify;
+}
+
+.titulo_aside{text-align: center;}
+
+.texto_aside{font-size: 0.8em;}
+
+/* Estilo de eventos */
+.evento {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 6px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.evento-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px 0 0 6px; /* Redondeo solo a la izquierda */
+}
+
+.evento-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.evento-info h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.evento-info h4 {
+    font-size: 1rem;
+    color: gray;
+}
+
+.evento-info p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 992px) {
+    .grid-container {
+        grid-template-areas: 
+            "header header"
+            "aside section"
+            "footer footer";
+        grid-template-rows: 100px 400px 100px;
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
